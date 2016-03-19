@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main"></div>
+
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    
+    <!-- 引入数据文件 -->
+    <script type="text/javascript" src='1_example.js'></script>
+    <script type="text/javascript" src='2_example.js'></script>
+    <script type="text/javascript" src='3_example.js'></script>
+
+
+    
+    <!-- 引入初始化图标的方法 -->
+    <script type="text/javascript" src='initChart.js'></script>
+
+
+    <script type="text/javascript">
+     
+     	initChart(optionData1);
+     	initChart(optionData2);
+     	initChart(optionData3);
+
+
+    </script>
+</body>
