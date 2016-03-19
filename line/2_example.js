@@ -14,13 +14,13 @@ optionData2 = {
         padding: 10,                    // [5, 10, 15, 20]
         itemGap: 30,                    // 各个item之间的间隔，单位px，默认为10，
         textStyle: {color: 'red'},
+        
         selected: {                     // 配置默认选中状态，可配合LEGEND.SELECTED事件做动态数据载入
             '降水量' : true,
         },
 
         // 图例内容数组, 数组项通常为{string}
         // 每一项代表一个系列的name
-        
         // 使用根据该值索引series中同名系列所用的图表类型和itemStyle，
         // 如果索引不到，该item将默认为没启用状态。 
 
@@ -39,7 +39,6 @@ optionData2 = {
     series : [
         {
             clickable: true, //  数据图形是否可点击，默认开启，如果没有click事件响应可以关闭
-           
             name:'蒸发量',    //  与图例相关联 legend.data索引相关
             type:'bar',      //  展示 图形 类型
             data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6],
@@ -56,8 +55,6 @@ optionData2 = {
             data:[2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6]
         }
     ],
-
-
 
 
     xAxis :{
@@ -81,12 +78,15 @@ optionData2 = {
 };
 
 //动态添加默认不显示的数据
-function optionData2fun() {
- 
+function optionData2fun(myChart, option) {
+    var ecConfig = require('echarts/config');
     myChart.on(ecConfig.EVENT.LEGEND_SELECTED, function (param){
+
+
         var selected = param.selected;
         var len;
         var added;
+        console.log();
         if (selected['最低气温']) {
             len = option.series.length;
             added = false;

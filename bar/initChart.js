@@ -35,17 +35,18 @@ function initChart(optionData, func) {
 
         ],
         function (ec) {
-                
-            // 基于准备好的dom，初始化echarts图表       
-            var myChart = ec.init(echartDiv, "macarons"); 
-            // 数据设定
-            option = optionData;
-    
-            // 为echarts对象加载数据 
-            myChart.setOption(option); 
-            
             if (func != undefined) {
-                func(myChart, option);
+                func()
+            }
+            else {            
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(echartDiv, "macarons"); 
+                
+                // 数据设定
+                option = optionData;
+        
+                // 为echarts对象加载数据 
+                myChart.setOption(option); 
             }
         }
     );            
